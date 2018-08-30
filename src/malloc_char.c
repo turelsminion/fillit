@@ -6,7 +6,7 @@
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:44:49 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/29 16:25:14 by andmiron         ###   ########.fr       */
+/*   Updated: 2018/08/30 14:02:28 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**malloc_char(char **tab, int len)
 {
-	int i;
+	int	i;
 
 	tab = (char**)malloc(sizeof(char*) * len);
 	i = -1;
