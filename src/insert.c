@@ -3,49 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   insert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
+/*   By: turelsminion <turelsminion@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:38:43 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/29 17:26:56 by andmiron         ###   ########.fr       */
+/*   Updated: 2018/08/30 15:52:29 by turelsminio      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-t_list	*ft_insert(char *str)
+void	ft_insert(char *str)
 {
-	t_list *list;
+	t_tetr  e;
 	t_list *ptr;
 	int		fd;
 	char	s[22];
-	int		aux;
 
-	list = NULL;
-	aux = 0;
-	ptr = list;
+	e.list = NULL;
+	e.tetrall = 0;
+	ptr = e.list;
 	fd = open(str, O_RDONLY);
 	while (read(fd, s, 21))
 	{
-		if (aux == 0)
+		if (e.tetrall == 0)
 		{
-			list = ft_create_elem(s);
-			//ft_print_tab(list->tetr, 4);
-			ptr = list;
-			ptr = ptr->next;
-			aux++;
+			e.list = ft_create_elem(s);
+            ptr = e.list;
 		}
 		else
 		{
-			ptr = ft_create_elem(s);
-			ptr = ptr->next;
+			ptr->next = ft_create_elem(s);
+            ptr = ptr->next;
 		}
+        e.tetrall++;
 	}
-	ptr = list;
-	while (ptr)
-	{
-		ft_print_tab(ptr->tetr, 4);
-		ft_putchar('\n');
-		ptr = ptr->next;
-	}
-	return (list);
+   // ft_algorithm(&e);
 }
