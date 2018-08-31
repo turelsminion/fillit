@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert.c                                           :+:      :+:    :+:   */
+/*   ft_backtrack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/29 15:38:43 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/31 19:27:54 by andmiron         ###   ########.fr       */
+/*   Created: 2018/08/31 19:15:01 by andmiron          #+#    #+#             */
+/*   Updated: 2018/08/31 20:19:37 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-void	ft_insert(char *str)
+int		ft_backtrack(t_list *list, t_tetr *e)
 {
-	t_tetr	e;
-	t_list	*ptr;
-	int		fd;
-	char	s[22];
+	int	i;
+	int	j;
 
-	e.tetrall = 0;
-	e.list = NULL;
-	ptr = e.list;
-	fd = open(str, O_RDONLY);
-	while (read(fd, s, 21))
+	i = -1;
+	while (++i < e->len)
 	{
-		if (e.tetrall == 0)
+		j = -1;
+		while (++j < e->len)
 		{
-			e.list = ft_create_elem(s);
-			ptr = e.list;
+			if (ft_check_fill(list, e, i, j))
+			{
+				ft_print_tab(e->matrix, e->len);
+				ft_putchar('\n');
+				if (list->next == NULL)
+					return (1);
+				else if (ft_backtrack(list->next, e))
+					return (1);
+				else
+					ft_remove(list, e, i, j);
+			}
 		}
-		else
-		{
-			ptr->next = ft_create_elem(s);
-			ptr = ptr->next;
-		}
-		ptr->c = e.tetrall + 65;
-		e.tetrall++;
 	}
-	ft_algorithm(&e);
+	return (0);
 }

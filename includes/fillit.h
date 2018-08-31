@@ -6,7 +6,7 @@
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 14:03:34 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/31 13:30:45 by andmiron         ###   ########.fr       */
+/*   Updated: 2018/08/31 20:17:49 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ t_list				*ft_create_elem(char *str);
 void				ft_insert(char *str);
 void				ft_minimum_tetr(t_tetr *e);
 void				ft_algorithm(t_tetr *e);
-void				ft_freememtab(char ***tab, int len);
+char				**ft_freememtab(char **tab, int len);
 void				ft_transzero(t_tetr *e);
 void				ft_create_matrix(t_tetr *e);
 int					**malloc_int(int **tab, int lenline, int lencol);
 char				**ft_strsplit(char const *s, char c);
+int					ft_check_fill(t_list *list, t_tetr *e, int i, int j);
+int					ft_backtrack(t_list *list, t_tetr *e);
+void				ft_remove(t_list *list, t_tetr *e, int i, int j);
 
 #endif

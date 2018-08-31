@@ -22,7 +22,10 @@ SRC = 	$(PATH_SRC)main.c \
 		$(PATH_SRC)ft_freemem.c \
 		$(PATH_SRC)ft_minimum_tetr.c \
 		$(PATH_SRC)ft_transzero.c \
-		$(PATH_SRC)ft_strsplit.c
+		$(PATH_SRC)ft_strsplit.c \
+		$(PATH_SRC)ft_backtrack.c \
+		$(PATH_SRC)check_fill.c \
+		$(PATH_SRC)remove.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 
