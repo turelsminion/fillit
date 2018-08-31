@@ -17,9 +17,8 @@ void	ft_algorithm(t_tetr *e)
 	ft_minimum_tetr(e);
 	e->matrix = malloc_char(e->matrix, e->len);
 	ft_create_matrix(e);
-	while (ft_backtrack(e->list, e))
+	while (ft_backtrack(e->list, e) == 0)
 	{
-		ft_print_tab(e->matrix, e->len);
 		e->matrix = ft_freememtab(e->matrix, e->len);
 		e->len++;
 		e->matrix = malloc_char(e->matrix, e->len);

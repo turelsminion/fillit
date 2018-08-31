@@ -18,8 +18,5 @@ void	ft_remove(t_list *list, t_tetr *e, int i, int j)
 
 	aux = -1;
 	while (++aux < 4)
-	{
-		printf("|%c - %d - %d|\n", list->c, list->tetr[aux][0] + i, list->tetr[aux][1] + j);
 		e->matrix[list->tetr[aux][0] + i][list->tetr[aux][1] + j] = '.';
-	}
 }

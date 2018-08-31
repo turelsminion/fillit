@@ -25,8 +25,6 @@ int		ft_backtrack(t_list *list, t_tetr *e)
 		{
 			if (ft_check_fill(list, e, i, j))
 			{
-				ft_print_tab(e->matrix, e->len);
-				ft_putchar('\n');
 				if (list->next == NULL)
 					return (1);
 				else if (ft_backtrack(list->next, e))

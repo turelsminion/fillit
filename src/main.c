@@ -17,10 +17,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		if (check(av[1]))
-		{
-			printf("Zaibisea pahnet pisea!\n");
 			ft_insert(av[1]);
-		}
 		else
 			ft_putstr("error\n");
 	}
