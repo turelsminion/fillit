@@ -21,7 +21,8 @@ SRC = 	$(PATH_SRC)main.c \
 		$(PATH_SRC)ft_create_matrix.c \
 		$(PATH_SRC)ft_freemem.c \
 		$(PATH_SRC)ft_minimum_tetr.c \
-		$(PATH_SRC)ft_transzero.c
+		$(PATH_SRC)ft_transzero.c \
+		$(PATH_SRC)ft_strsplit.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 

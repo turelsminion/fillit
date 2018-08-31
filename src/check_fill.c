@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm.c                                     :+:      :+:    :+:   */
+/*   check_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/30 14:01:15 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/31 14:16:19 by andmiron         ###   ########.fr       */
+/*   Created: 2018/08/30 16:27:26 by andmiron          #+#    #+#             */
+/*   Updated: 2018/08/31 14:47:06 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-/*void	ft_algorithm(t_tetr *e)
+int		ft_check_fill(t_list *list, t_tetr *e, int i, int j)
 {
-	ft_minimum_tetr(e);
-	e->matrix = malloc_char(e->matrix, e->len);
-	ft_create_matrix(e);
-	while (ft_backtracing(e))
-	{
-		ft_freememtab(e->matrix, e->len);
-		e->len++;
-		e->matrix = malloc_char(e->matrix, e->len);
-		ft_create_matrix(e);
-	}
-	ft_print_tab(e->tetrall, e->len);
+	
 }
-*/

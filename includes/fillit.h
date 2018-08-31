@@ -6,7 +6,7 @@
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 14:03:34 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/30 14:11:59 by andmiron         ###   ########.fr       */
+/*   Updated: 2018/08/31 13:30:45 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 
 typedef struct		s_list
 {
-	char			**tetr;
+	int				**tetr;
+	char			c;
 	struct s_list	*next;
 }					t_list;
 
@@ -46,5 +47,8 @@ void				ft_minimum_tetr(t_tetr *e);
 void				ft_algorithm(t_tetr *e);
 void				ft_freememtab(char ***tab, int len);
 void				ft_transzero(t_tetr *e);
+void				ft_create_matrix(t_tetr *e);
+int					**malloc_int(int **tab, int lenline, int lencol);
+char				**ft_strsplit(char const *s, char c);
 
 #endif
