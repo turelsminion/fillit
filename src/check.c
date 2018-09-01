@@ -6,7 +6,7 @@
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:36:31 by andmiron          #+#    #+#             */
-/*   Updated: 2018/08/29 15:37:44 by andmiron         ###   ########.fr       */
+/*   Updated: 2018/09/01 12:13:20 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,25 @@ static int	check_col(char *str)
 int			check(char *str)
 {
 	int		fd;
-	char	*s;
+	char	s[22];
 	int		aux;
 
 	fd = open(str, O_RDONLY);
 	if (fd < 2)
-		return (0);	
+		return (0);
 	aux = 0;
-	s = (char *)malloc(sizeof(char) * 22);
 	while (read(fd, s, 21))
 	{
-		if (check_col(s) == 0)
-		{
-			close(fd);
-			return (0);
-		}
+		ft_putstr(s);
 		aux++;
-		if (aux == 27)
+		if (check_col(s) == 0 && aux == 27)
 		{
 			close(fd);
 			return (0);
 		}
 	}
+	if (aux == 0)
+		return (0);
 	close(fd);
 	return (1);
 }
