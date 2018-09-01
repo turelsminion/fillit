@@ -25,4 +25,5 @@ void	ft_algorithm(t_tetr *e)
 		ft_create_matrix(e);
 	}
 	ft_print_tab(e->matrix, e->len);
+	ft_free_all(e);
 }

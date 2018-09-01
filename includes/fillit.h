@@ -52,5 +52,6 @@ char				**ft_strsplit(char const *s, char c);
 int					ft_check_fill(t_list *list, t_tetr *e, int i, int j);
 int					ft_backtrack(t_list *list, t_tetr *e);
 void				ft_remove(t_list *list, t_tetr *e, int i, int j);
+void				ft_free_all(t_tetr *e);
 
 #endif

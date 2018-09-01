@@ -46,6 +46,8 @@ int			check(char *str)
 	int		aux;
 
 	fd = open(str, O_RDONLY);
+	if (fd < 2)
+		return (0);	
 	aux = 0;
 	s = (char *)malloc(sizeof(char) * 22);
 	while (read(fd, s, 21))
