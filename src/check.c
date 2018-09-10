@@ -6,12 +6,21 @@
 /*   By: andmiron <andmiron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:36:31 by andmiron          #+#    #+#             */
-/*   Updated: 2018/09/10 21:54:47 by andmiron         ###   ########.fr       */
+/*   Updated: 2018/09/10 21:10:04 by andmiron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
-#define IT(aux, i, fd, str) ((aux = 0) && (i = 0) && (fd = open(str, O_RDONLY)))
+
+static int	ft_strlen(char *str)
+{
+	int i;
+
+	i = -1;
+	while (str[++i])
+		;
+	return (i);
+}
 
 static int	check_sym(char *str)
 {
@@ -29,45 +38,38 @@ static int	check_col(char *str)
 	int i;
 
 	i = 4;
-	while (i < 20)
+	while (i != 24)
 	{
-		if (str[i] != '\n')
+		if (str[i] == '\n')
+			i += 5;
+		else
 			return (0);
-		i += 5;
 	}
 	return (check_sym(str));
 }
 
 int			check(char *str)
 {
-	char	*s;
-	int		i;
-	int		fd;
+	char	s[20];
+	int		t[4];
 	char	c;
-	int		aux;
 
-	aux = 0;
-	i = 0;
-	s[20] = '\0';
-	fd = open(str, O_RDONLY);
-	if (fd < 2)
+	t[0] = -1;
+	t[1] = 0;
+	t[2] = open(str, O_RDONLY);
+	if (t[2] < 2)
 		return (0);
-	while (read(fd, &c, 1))
+	while (read(t[2], s, 20) == 20)
 	{
-		if (i == 20)
-		{
-			ft_putstr(s);
-			if (check_col(s) == 0 || aux > 26)
-				return (0);
-			read(fd, &c, 1);
-			i = 0;
-			aux++;
-		}
-		else
-		{
-			s[i] = c;
-			i++;
-		}
+		t[1] = read(t[2], &c, 1);
+		if (c != '\n' || ++t[0] > 26 || check_col(s) == 0)
+			return (0);
+		t[3] = -1;
+		while (s[++t[3]])
+			if (s[t[3]] != '\n')
+				s[t[3]] = '.';
 	}
-	return (check_col(s));
+	if (t[1] == 1 || ft_strlen(s) != 20)
+		return (0);
+	return (1);
 }
